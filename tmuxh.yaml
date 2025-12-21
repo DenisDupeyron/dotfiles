@@ -1,0 +1,16 @@
+session_name: root_session
+start_directory: "~"
+windows:
+  - window_name: root_window
+    layout: main-horizontal
+    options:
+      main-pane-height: 80%
+    panes:
+      - focus: true
+        shell_command:
+          - unset TMUX
+          - for S in {1..8}; do tmux new-session -d -s session${S}; done
+          - tmux at -t session1
+      - clear
+      - clear
+      - clear
