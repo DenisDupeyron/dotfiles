@@ -1,0 +1,54 @@
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size = 9
+
+[window]
+decorations = "Buttonless"
+dynamic_padding = true
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Maximized"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[bell]
+animation = "EaseOutExpo"
+duration = 100
+
+[selection]
+save_to_clipboard = true
+
+# Default colors
+[colors.primary]
+background = '0x000000'
+foreground = '0xffffff'
+
+# Normal colors (GitHub Dark High Contrast theme)
+[colors.normal]
+black = '0x000000'
+red = '0xcd3131'
+green = '0x6a9955'
+yellow = '0xce9178'
+blue = '0x2472c8'
+magenta = '0xc586c0'
+cyan = '0x11a8cd'
+white = '0xe5e5e5'
+
+# Bright colors (GitHub Dark High Contrast theme)
+[colors.bright]
+black = '0x666666'
+red = '0xf14c4c'
+green = '0xb5cea8'
+yellow = '0xecec6a'
+blue = '0x569cd6'
+magenta = '0xd38bcd'
+cyan = '0x9cdcfe'
+white = '0xffffff'
+
+[env]
+TERM = "xterm-256color"
