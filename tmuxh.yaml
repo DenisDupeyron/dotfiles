@@ -9,7 +9,7 @@ windows:
       - focus: true
         shell_command:
           - unset TMUX
-          - for S in {1..8}; do tmux new-session -d -s session${S}; done
+          - for S in {8..1}; do tmux new-session -d -s session${S}; done
           - tmux at -t session1
       - clear
       - clear
