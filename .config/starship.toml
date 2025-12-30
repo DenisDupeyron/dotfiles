@@ -1,0 +1,21 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '$all'
+
+[username]
+format = '[$user]($style) '
+
+[directory]
+truncation_symbol = "…/"
+
+[cmd_duration]
+disabled = true 
+
+[line_break]
+disabled = true
+
+[os]
+disabled = true
+
+[time]
+disabled = true
