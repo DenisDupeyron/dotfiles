@@ -2,7 +2,7 @@ return {
   "NickvanDyke/opencode.nvim",
   dependencies = {
     -- Recommended for `ask()` and `select()`.
-    -- Required for `snacks` provider.
+    -- Recommended for `snacks` integration.
     ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
     {
       "folke/snacks.nvim",
@@ -11,20 +11,25 @@ return {
       opts = {
         input = {},
         picker = {},
-        terminal = {},
       },
     },
   },
   config = function()
+    local opencode_cmd = "opencode --port"
+    ---@type snacks.terminal.Opts
+    local snacks_terminal_opts = {
+      win = {
+        position = "bottom",
+        height = 0.3,
+        enter = false,
+      },
+    }
     ---@type opencode.Opts
     vim.g.opencode_opts = {
-      provider = {
-        snacks = {
-          win = {
-            position = "bottom",
-            height = 0.3,
-          },
-        },
+      server = {
+        start = function()
+          require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
+        end,
       },
     }
 
@@ -33,13 +38,13 @@ return {
 
     -- Recommended/example keymaps.
     vim.keymap.set({ "n", "x" }, "<leader>oa", function()
-      require("opencode").ask("@this: ", { submit = true })
+      require("opencode").ask("@this: ")
     end, { desc = "Ask opencode" })
     vim.keymap.set({ "n", "x" }, "<leader>ox", function()
       require("opencode").select()
     end, { desc = "Execute opencode action…" })
     vim.keymap.set({ "n", "t" }, "<leader>o.", function()
-      require("opencode").toggle()
+      require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
     end, { desc = "Toggle opencode" })
 
     vim.keymap.set({ "n", "x" }, "<leader>or", function()
